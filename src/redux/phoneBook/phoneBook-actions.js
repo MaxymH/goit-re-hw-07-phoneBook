@@ -23,7 +23,7 @@ export const addContact = createAsyncThunk(
     const { contacts } = getState();
 
     const isDuplicated = contacts.items.find(
-      item => item.name === contact.name
+      item => item.name.toLowerCase() === contact.name.toLowerCase() 
     );
 
     if (isDuplicated) {

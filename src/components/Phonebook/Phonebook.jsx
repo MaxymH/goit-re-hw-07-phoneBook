@@ -26,7 +26,8 @@ const Phonebook = () => {
     }, [dispatch]);
 
     const addContacts = useCallback(
-    data => {
+      data => {
+        
         return dispatch(operations.addContact(data));
     },
     [dispatch]
