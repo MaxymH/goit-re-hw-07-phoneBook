@@ -1,5 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit';
-
+import { createReducer, createSlice } from '@reduxjs/toolkit';
+import { filter } from './phoneBook-actions';
 import * as operations from './phoneBook-actions';
 
 const initialState = {
@@ -61,5 +61,9 @@ const contactsSlice = createSlice({
     }),
   },
 });
+
+export const phoneBookReducer = createReducer(initialState, {
+  [filter]: (state, action) => ({ ...state,filter: action.payload }),
+})
 
 export default contactsSlice.reducer;
