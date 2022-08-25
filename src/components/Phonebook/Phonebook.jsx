@@ -9,17 +9,13 @@ import ContactList from "./ContactList";
 
 import {getContacts, getError,getLoading, geFilter } from "../../redux/phoneBook/phoneBook-selecctor";
 
-import * as operations from "../../redux/phoneBook/phoneBook-actions";
+import * as operations from "../../redux/phoneBook/phoneBook-operations";
 
 const Phonebook = () => {
     const dispatch = useDispatch()
-
-    const contacts = useSelector(getContacts, shallowEqual);
     const isLoading = useSelector(getLoading, shallowEqual);
   const error = useSelector(getError, shallowEqual);
-  const filter = useSelector(geFilter, shallowEqual);
   
-    
 
     useEffect(() => {
     dispatch(operations.getContacts());
@@ -47,8 +43,11 @@ const Phonebook = () => {
     },
     [dispatch]
   );
-
+  
+  const contacts = useSelector(getContacts, shallowEqual);
+  const filter = useSelector(geFilter, shallowEqual);
   const getFilteredContacts = () => {
+    
     if (!filter) {
       return contacts;
     }

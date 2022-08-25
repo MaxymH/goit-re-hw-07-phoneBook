@@ -20,16 +20,6 @@ export const getContacts = createAsyncThunk(
 export const addContact = createAsyncThunk(
   'contacts/addContact',
   async (contact, { rejectWithValue, getState }) => {
-    const { contacts } = getState();
-
-    const isDuplicated = contacts.items.find(
-      item => item.name.toLowerCase() === contact.name.toLowerCase() 
-    );
-
-    if (isDuplicated) {
-      alert(`${contact.name} is already in your Phone Book`);
-      return;
-    }
 
     try {
       const data = await API.addContact(contact);

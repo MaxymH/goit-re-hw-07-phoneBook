@@ -1,6 +1,6 @@
 import { createReducer, createSlice } from '@reduxjs/toolkit';
-import { filter } from './phoneBook-actions';
-import * as operations from './phoneBook-actions';
+import { filter } from './phoneBook-operations';
+import * as operations from './phoneBook-operations';
 
 const initialState = {
   items: [],
